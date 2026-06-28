@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPS Photography & E-Mitra | Sindhari, Rajasthan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#7a1f2b;
+    --maroon-deep:#52121b;
+    --gold:#c8973a;
+    --gold-light:#e9c878;
+    --cream:#f7f1e6;
+    --cream-2:#efe4cf;
+    --ink:#241510;
+    --ink-soft:#5a4a40;
+    --green:#1f5c46;
+    --white:#fffaf2;
+    --shadow: 0 18px 40px rgba(36,21,16,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins','Noto Sans Devanagari',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.brand-name{
+    font-family:'Marcellus','Noto Sans Devanagari',serif;
+  }
+  ::selection{background:var(--gold-light);}
+
+  .mandala-bg{
+    position:absolute;
+    inset:0;
+    opacity:0.07;
+    background-image:
+      radial-gradient(circle at 20% 20%, transparent 0 18px, var(--gold) 18px 20px, transparent 20px 38px),
+      radial-gradient(circle at 80% 60%, transparent 0 14px, var(--gold) 14px 16px, transparent 16px 30px);
+    background-size:140px 140px, 100px 100px;
+    pointer-events:none;
+  }
+
+  .topbar{
+    background:var(--maroon-deep);
+    color:var(--cream-2);
+    font-size:0.78rem;
+    padding:7px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    letter-spacing:.3px;
+  }
+  .topbar a{color:var(--gold-light);text-decoration:none;}
+  .topbar .tb-left span{margin-right:18px;}
+
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(247,241,230,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(122,31,43,0.15);
+    transition:box-shadow .3s ease;
+  }
+  nav{
+    max-width:1180px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 5%;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{
+    width:46px;height:46px;border-radius:50%;
+    background:conic-gradient(from 180deg, var(--maroon), var(--gold), var(--maroon));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--white);font-weight:700;font-size:1.1rem;font-family:'Marcellus',serif;
+    box-shadow:0 4px 14px rgba(122,31,43,0.35);
+  }
+  .brand-text .brand-name{font-size:1.32rem;color:var(--maroon-deep);line-height:1.1;}
+  .brand-text .brand-sub{font-size:0.68rem;letter-spacing:1.5px;color:var(--ink-soft);text-transform:uppercase;}
+
+  .navlinks{display:flex;gap:32px;list-style:none;align-items:center;}
+  .navlinks a{
+    text-decoration:none;color:var(--ink);font-size:0.94rem;font-weight:500;
+    position:relative;padding:4px 0;
+  }
+  .navlinks a::after{
+    content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--gold);
+    transition:width .3s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--maroon);color:var(--white)!important;padding:10px 22px;border-radius:30px;
+    font-weight:600;box-shadow:0 8px 18px rgba(122,31,43,0.3);
+  }
+  .nav-cta::after{display:none;}
+  .nav-cta:hover{background:var(--maroon-deep);}
+
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+  .hamburger span{width:26px;height:2.5px;background:var(--maroon-deep);border-radius:2px;}
+
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;align-items:center;
+    background:linear-gradient(135deg, var(--maroon-deep) 0%, var(--maroon) 55%, #8a2a36 100%);
+    overflow:hidden;
+  }
+  .hero .mandala-bg{opacity:0.10;filter:invert(1);}
+  .hero-inner{
+    max-width:1180px;margin:0 auto;width:100%;
+    padding:60px 5%;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;
+    position:relative;z-index:2;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--gold-light);font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;
+    font-weight:600;margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:30px;height:1px;background:var(--gold-light);}
+  .hero h1{
+    color:var(--white);font-size:3.1rem;line-height:1.18;font-weight:400;
+    margin-bottom:18px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--gold-light);
+    border-bottom:3px solid var(--gold);
+  }
+  .hero p.lead{
+    color:#f0e2cf;font-size:1.08rem;line-height:1.75;max-width:480px;margin-bottom:32px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 30px;border-radius:32px;font-weight:600;font-size:0.96rem;
+    text-decoration:none;cursor:pointer;border:none;transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn:hover{transform:translateY(-3px);}
+  .btn-primary{background:var(--gold);color:var(--maroon-deep);box-shadow:0 12px 26px rgba(200,151,58,0.45);}
+  .btn-primary:hover{box-shadow:0 16px 32px rgba(200,151,58,0.55);}
+  .btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.5);}
+  .btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);}
+
+  .hero-stats{display:flex;gap:28px;margin-top:42px;flex-wrap:wrap;}
+  .stat b{display:block;font-size:1.7rem;color:var(--gold-light);font-family:'Marcellus',serif;}
+  .stat span{font-size:0.78rem;color:#e8d8c2;letter-spacing:.4px;}
+
+  .hero-visual{position:relative;height:440px;}
+  .photo-card{
+    position:absolute;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
+    border:5px solid var(--white);
+  }
+  .pc1{width:78%;height:300px;top:0;right:0;background:linear-gradient(160deg,#3a3a3a,#1a1a1a);z-index:2;}
+  .pc2{width:60%;height:230px;bottom:0;left:0;background:linear-gradient(160deg,var(--gold-light),var(--gold));z-index:1;transform:rotate(-4deg);}
+  .pc-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.6rem;}
+  .badge-float{
+    position:absolute;bottom:-14px;right:14px;background:var(--white);color:var(--maroon-deep);
+    padding:12px 18px;border-radius:14px;box-shadow:var(--shadow);
+    font-size:0.85rem;font-weight:600;display:flex;align-items:center;gap:8px;z-index:3;
+  }
+  .badge-float .stars{color:var(--gold);}
+
+  .trust-strip{
+    background:var(--white);
+    padding:22px 5%;
+    display:flex;justify-content:center;gap:48px;flex-wrap:wrap;
+    border-bottom:1px solid var(--cream-2);
+  }
+  .trust-item{display:flex;align-items:center;gap:10px;color:var(--ink-soft);font-size:0.9rem;font-weight:500;}
+  .trust-item .ti-ico{color:var(--maroon);font-size:1.1rem;}
+
+  section{padding:90px 5%;position:relative;}
+  .container{max-width:1180px;margin:0 auto;position:relative;z-index:2;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 56px;}
+  .section-head .eyebrow{justify-content:center;color:var(--maroon);}
+  .section-head .eyebrow::before{background:var(--maroon);}
+  .section-head h2{font-size:2.3rem;color:var(--maroon-deep);font-weight:400;line-height:1.25;}
+  .section-head p{color:var(--ink-soft);margin-top:14px;font-size:1rem;line-height:1.7;}
+
+  .services{background:var(--white);}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .service-card{
+    background:var(--cream);border-radius:18px;padding:34px 26px;
+    border:1px solid var(--cream-2);transition:all .3s ease;position:relative;overflow:hidden;
+  }
+  .service-card::before{
+    content:'';position:absolute;top:0;left:0;width:5px;height:0;background:var(--gold);transition:height .35s ease;
+  }
+  .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow);background:var(--white);}
+  .service-card:hover::before{height:100%;}
+  .service-card .ico{
+    width:58px;height:58px;border-radius:14px;
+    background:linear-gradient(135deg,var(--maroon),var(--maroon-deep));
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--gold-light);
+    margin-bottom:20px;
+  }
+  .service-card h3{font-size:1.18rem;color:var(--maroon-deep);margin-bottom:10px;font-weight:600;font-family:'Poppins';}
+  .service-card p{color:var(--ink-soft);font-size:0.92rem;line-height:1.65;}
+  .service-card .tag{
+    display:inline-block;margin-top:14px;font-size:0.75rem;background:var(--cream-2);
+    color:var(--maroon);padding:4px 12px;border-radius:20px;font-weight:600;
+  }
+
+  .gallery{background:var(--cream);}
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4, 1fr);grid-template-rows:160px 160px;gap:14px;
+  }
+  .g-item{
+    border-radius:14px;position:relative;overflow:hidden;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;color:var(--white);
+    font-size:1.8rem;transition:transform .3s ease;
+  }
+  .g-item span.lbl{
+    position:absolute;bottom:10px;left:14px;font-size:0.78rem;font-weight:600;
+    background:rgba(36,21,16,0.55);padding:4px 10px;border-radius:20px;
+  }
+  .g1{grid-column:1/3;grid-row:1/3;background:linear-gradient(150deg,#2b2b2b,#0e0e0e);}
+  .g2{background:linear-gradient(150deg,var(--maroon),var(--maroon-deep));}
+  .g3{background:linear-gradient(150deg,var(--gold),#a87a22);}
+  .g4{background:linear-gradient(150deg,var(--green),#0e3324);}
+  .g5{background:linear-gradient(150deg,#8a2a36,#52121b);}
+  .g-item:hover{transform:scale(1.02);}
+
+  .emitra{
+    background:var(--maroon-deep);color:var(--cream-2);position:relative;overflow:hidden;
+  }
+  .emitra .section-head h2{color:var(--white);}
+  .emitra .section-head .eyebrow{color:var(--gold-light);}
+  .emitra .section-head .eyebrow::before{background:var(--gold-light);}
+  .emitra .section-head p{color:#e3d4bf;}
+  .emitra-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .em-card{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+    border-radius:14px;padding:24px 20px;text-align:center;transition:.3s;
+  }
+  .em-card:hover{background:rgba(255,255,255,0.13);transform:translateY(-5px);}
+  .em-card .em-ico{font-size:1.9rem;margin-bottom:10px;}
+  .em-card h4{font-size:0.95rem;font-weight:600;margin-bottom:6px;color:var(--white);}
+  .em-card p{font-size:0.78rem;color:#d8c6ac;}
+
+  .pricing{background:var(--white);}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .price-card{
+    border-radius:20px;padding:38px 30px;border:1.5px solid var(--cream-2);
+    text-align:center;position:relative;transition:.3s;
+  }
+  .price-card:hover{box-shadow:var(--shadow);transform:translateY(-6px);}
+  .price-card.featured{
+    background:linear-gradient(160deg,var(--maroon),var(--maroon-deep));color:var(--white);
+    border:none;transform:scale(1.04);
+  }
+  .price-card.featured:hover{transform:scale(1.04) translateY(-6px);}
+  .price-card .ribbon{
+    position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--gold);color:var(--maroon-deep);font-size:0.72rem;font-weight:700;
+    padding:5px 16px;border-radius:20px;letter-spacing:.5px;
+  }
+  .price-card h3{font-size:1.1rem;margin-bottom:6px;font-weight:600;}
+  .price-card .amount{font-family:'Marcellus',serif;font-size:2.4rem;margin:14px 0;}
+  .price-card.featured .amount{color:var(--gold-light);}
+  .price-card:not(.featured) .amount{color:var(--maroon-deep);}
+  .price-card .amount sup{font-size:1rem;font-weight:500;}
+  .price-card ul{list-style:none;text-align:left;margin:24px 0;display:flex;flex-direction:column;gap:11px;}
+  .price-card ul li{font-size:0.88rem;display:flex;gap:9px;align-items:flex-start;}
+  .price-card:not(.featured) ul li{color:var(--ink-soft);}
+  .price-card.featured ul li{color:#f0e2cf;}
+  .price-card .check{color:var(--gold);font-weight:700;}
+  .price-card.featured .check{color:var(--gold-light);}
+  .price-card .btn{width:100%;justify-content:center;margin-top:8px;}
+
+  .testimonials{background:var(--cream);}
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .t-card{
+    background:var(--white);border-radius:18px;padding:30px 26px;box-shadow:0 8px 24px rgba(36,21,16,0.08);
+    position:relative;
+  }
+  .t-card .quote-mark{font-family:'Marcellus',serif;font-size:3rem;color:var(--gold-light);line-height:1;position:absolute;top:14px;right:20px;}
+  .t-stars{color:var(--gold);margin-bottom:12px;letter-spacing:2px;}
+  .t-card p{color:var(--ink-soft);font-size:0.92rem;line-height:1.7;margin-bottom:20px;}
+  .t-person{display:flex;align-items:center;gap:12px;}
+  .t-avatar{
+    width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--maroon),var(--gold));
+    display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:0.9rem;
+  }
+  .t-name{font-weight:600;font-size:0.9rem;color:var(--ink);}
+  .t-loc{font-size:0.75rem;color:var(--ink-soft);}
+
+  .location{background:var(--white);}
+  .loc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .loc-card{
+    background:var(--cream);border-radius:20px;padding:36px;border:1px solid var(--cream-2);
+  }
+  .loc-row{display:flex;gap:16px;margin-bottom:22px;align-items:flex-start;}
+  .loc-row .li-ico{
+    width:42px;height:42px;border-radius:12px;background:var(--maroon);color:var(--gold-light);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.05rem;
+  }
+  .loc-row h4{font-size:0.95rem;color:var(--maroon-deep);margin-bottom:4px;}
+  .loc-row p{font-size:0.88rem;color:var(--ink-soft);line-height:1.6;}
+  .map-frame{
+    border-radius:20px;overflow:hidden;height:380px;position:relative;
+    background:linear-gradient(160deg,#cdbf9e,#a89567);
+    box-shadow:var(--shadow);
+  }
+  .map-frame .pin{
+    position:absolute;top:48%;left:54%;transform:translate(-50%,-100%);
+    font-size:2.4rem;color:var(--maroon);filter:drop-shadow(0 6px 8px rgba(0,0,0,0.3));
+    animation:bounce 2s infinite;
+  }
+  @keyframes bounce{0%,100%{transform:translate(-50%,-100%);}50%{transform:translate(-50%,-110%);}}
+  .map-frame .road{position:absolute;width:200%;height:34px;background:#cfc4a8;top:62%;left:-40%;transform:rotate(-18deg);}
+  .map-label{
+    position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.92);padding:10px 16px;
+    border-radius:12px;font-size:0.8rem;font-weight:600;color:var(--maroon-deep);box-shadow:var(--shadow);
+  }
+
+  .cta-band{
+    background:linear-gradient(120deg,var(--gold) 0%, #d9a84a 100%);
+    text-align:center;padding:64px 5%;
+  }
+  .cta-band h2{font-size:2rem;color:var(--maroon-deep);font-weight:400;margin-bottom:14px;}
+  .cta-band p{color:#5a3f1a;margin-bottom:30px;font-size:1rem;}
+  .cta-band .btn-primary{background:var(--maroon-deep);color:var(--white);box-shadow:0 12px 26px rgba(82,18,27,0.35);}
+
+  footer{background:var(--maroon-deep);color:#e3d4bf;padding:60px 5% 26px;}
+  .footer-grid{
+    max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;
+    padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .footer-grid h4{color:var(--gold-light);font-size:0.95rem;margin-bottom:18px;font-weight:600;}
+  .footer-grid p, .footer-grid a{color:#d8c6ac;font-size:0.86rem;text-decoration:none;line-height:1.8;}
+  .footer-grid ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .f-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .f-brand .brand-name{color:var(--white);font-size:1.2rem;}
+  .footer-bottom{
+    max-width:1180px;margin:0 auto;padding-top:22px;display:flex;justify-content:space-between;
+    font-size:0.8rem;color:#bfa888;flex-wrap:wrap;gap:10px;
+  }
+  .social-row{display:flex;gap:12px;margin-top:14px;}
+  .social-row a{
+    width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.1);
+    display:flex;align-items:center;justify-content:center;color:var(--gold-light)!important;
+  }
+  .social-row a:hover{background:var(--gold);color:var(--maroon-deep)!important;}
+
+  .float-wa{
+    position:fixed;bottom:26px;right:26px;width:58px;height:58px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;color:var(--white);
+    font-size:1.5rem;box-shadow:0 10px 24px rgba(0,0,0,0.3);z-index:200;text-decoration:none;
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.55);}70%{box-shadow:0 0 0 14px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  .toast{
+    position:fixed;top:24px;right:24px;background:var(--maroon-deep);color:var(--white);
+    padding:14px 22px;border-radius:12px;box-shadow:var(--shadow);font-size:0.88rem;
+    transform:translateX(120%);transition:transform .4s ease;z-index:500;max-width:80%;
+  }
+  .toast.show{transform:translateX(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important;}
+  }
+
+  @media (max-width:980px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-visual{height:320px;margin-top:20px;}
+    .service-grid, .price-grid, .t-grid{grid-template-columns:1fr 1fr;}
+    .emitra-grid{grid-template-columns:repeat(2,1fr);}
+    .loc-wrap{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:680px){
+    .navlinks{
+      position:fixed;top:78px;left:0;right:0;background:var(--white);flex-direction:column;
+      padding:24px 8%;gap:18px;box-shadow:var(--shadow);transform:translateY(-130%);
+      transition:transform .35s ease;z-index:99;
+    }
+    .navlinks.open{transform:translateY(0);}
+    .hamburger{display:flex;}
+    .hero h1{font-size:2.1rem;}
+    .hero-stats{flex-wrap:wrap;gap:18px;}
+    .service-grid,.price-grid,.t-grid{grid-template-columns:1fr;}
+    .emitra-grid{grid-template-columns:1fr 1fr;}
+    .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:130px 130px 130px;}
+    .g1{grid-column:1/3;grid-row:1/2;}
+    .footer-grid{grid-template-columns:1fr;}
+    .topbar .tb-left span:nth-child(2){display:none;}
+    section{padding:64px 5%;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-left">
+    <span>📞 063753 26482</span>
+    <span>📍 Siyag Market, Sindhari, Takooberi, Rajasthan</span>
+  </div>
+  <div class="tb-right"><a href="#contact">हिंदी | English</a></div>
+</div>
+
+<header>
+  <nav>
+    <div class="brand">
+      <div class="brand-mark">MS</div>
+      <div class="brand-text">
+        <div class="brand-name">MPS Photography</div>
+        <div class="brand-sub">& E‑Mitra Sindhari</div>
+      </div>
+    </div>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#services">सेवाएं</a></li>
+      <li><a href="#gallery">गैलरी</a></li>
+      <li><a href="#emitra">ई-मित्र</a></li>
+      <li><a href="#pricing">रेट्स</a></li>
+      <li><a href="#reviews">रिव्यू</a></li>
+      <li><a href="#contact" class="nav-cta">बुक करें</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="mandala-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">सिंधारी का भरोसेमंद स्टूडियो</div>
+      <h1>हर पल को <em>यादगार</em> बनाते हैं,<br>हर काम को आसान</h1>
+      <p class="lead">शादी, बर्थडे और फंक्शन की प्रोफेशनल फोटोग्राफी से लेकर आधार, पैन कार्ड, बिजली बिल जैसी ई-मित्र सेवाओं तक — एक ही छत के नीचे, 24 घंटे आपकी सेवा में।</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">📅 अभी बुकिंग करें</a>
+        <a href="#gallery" class="btn btn-outline">📸 गैलरी देखें</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>4.8★</b><span>गूगल रेटिंग</span></div>
+        <div class="stat"><b>500+</b><span>खुश ग्राहक</span></div>
+        <div class="stat"><b>24/7</b><span>सेवा उपलब्ध</span></div>
+        <div class="stat"><b>10+</b><span>वर्षों का अनुभव</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="photo-card pc1"><div class="pc-icon">📷</div></div>
+      <div class="photo-card pc2"><div class="pc-icon">🪪</div></div>
+      <div class="badge-float"><span class="stars">★★★★★</span> 4.8/5 (Google)</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-item"><span class="ti-ico">🕐</span> 24 घंटे खुला</div>
+  <div class="trust-item"><span class="ti-ico">✅</span> सरकारी प्रमाणित ई-मित्र</div>
+  <div class="trust-item"><span class="ti-ico">📍</span> टाकूबेरी रोड, सिंधारी</div>
+  <div class="trust-item"><span class="ti-ico">💯</span> सर्टिफाइड फोटोग्राफर</div>
+</div>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">हमारी सेवाएं</div>
+      <h2>फोटोग्राफी से लेकर डॉक्यूमेंट्स तक — सब कुछ यहीं</h2>
+      <p>शादी की एलबम से लेकर आधार करेक्शन तक, MPS Photography & E-Mitra आपकी हर ज़रूरत का समाधान है।</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="ico">💍</div>
+        <h3>वेडिंग फोटोग्राफी</h3>
+        <p>शादी के हर रस्म को कैमरे में कैद करें — कैंडिड शॉट्स, एलबम और सिनेमेटिक वीडियो के साथ।</p>
+        <span class="tag">फुल डे पैकेज</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="ico">🎉</div>
+        <h3>इवेंट व बर्थडे शूट</h3>
+        <p>जन्मदिन, सालगिरह और पार्टी फंक्शन के लिए प्रोफेशनल फोटो व वीडियो कवरेज।</p>
+        <span class="tag">सेम डे डिलीवरी</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="ico">🖼️</div>
+        <h3>स्टूडियो पोर्ट्रेट</h3>
+        <p>पासपोर्ट साइज़, फैमिली पोर्ट्रेट और स्टूडियो बैकग्राउंड फोटोशूट — तुरंत प्रिंट के साथ।</p>
+        <span class="tag">इंस्टेंट प्रिंट</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="ico">🪪</div>
+        <h3>आधार / पैन कार्ड</h3>
+        <p>नया आधार, करेक्शन, अपडेट और पैन कार्ड एप्लीकेशन — पूरी प्रक्रिया हम संभालते हैं।</p>
+        <span class="tag">ई-मित्र सेवा</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="ico">🧾</div>
+        <h3>बिल भुगतान</h3>
+        <p>बिजली, पानी, मोबाइल रिचार्ज और अन्य सरकारी बिलों का तुरंत भुगतान, बिना लाइन में लगे।</p>
+        <span class="tag">तुरंत रसीद</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="ico">📋</div>
+        <h3>सरकारी फॉर्म व प्रमाणपत्र</h3>
+        <p>जाति, निवास, आय प्रमाण पत्र और राशन कार्ड जैसे सभी सरकारी फॉर्म ऑनलाइन भरे जाते हैं।</p>
+        <span class="tag">सभी दस्तावेज़</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">हमारा काम</div>
+      <h2>कुछ यादगार पल, हमारे कैमरे से</h2>
+      <p>ग्राहकों के साथ ली गई तस्वीरों और कवर किए गए फंक्शन्स की एक झलक।</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g-item g1">🤵👰<span class="lbl">वेडिंग शूट</span></div>
+      <div class="g-item g2">🎂<span class="lbl">बर्थडे पार्टी</span></div>
+      <div class="g-item g3">👨‍👩‍👧‍👦<span class="lbl">फैमिली पोर्ट्रेट</span></div>
+      <div class="g-item g4">🪪<span class="lbl">ई-मित्र काउंटर</span></div>
+      <div class="g-item g5">🎊<span class="lbl">फंक्शन कवरेज</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="emitra" id="emitra">
+  <div class="mandala-bg" style="opacity:0.05;"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">ई-मित्र केंद्र</div>
+      <h2>सरकारी काम अब घर के पास, बिना झंझट</h2>
+      <p>राजस्थान सरकार द्वारा अधिकृत ई-मित्र केंद्र से जुड़ी सभी सेवाएं एक ही जगह उपलब्ध हैं।</p>
+    </div>
+    <div class="emitra-grid">
+      <div class="em-card reveal"><div class="em-ico">🪪</div><h4>आधार कार्ड</h4><p>नया / अपडेट / प्रिंट</p></div>
+      <div class="em-card reveal"><div class="em-ico">💳</div><h4>पैन कार्ड</h4><p>नया / करेक्शन</p></div>
+      <div class="em-card reveal"><div class="em-ico">🌾</div><h4>राशन कार्ड</h4><p>नया / नाम जोड़ें</p></div>
+      <div class="em-card reveal"><div class="em-ico">⚡</div><h4>बिजली बिल</h4><p>भुगतान / नया कनेक्शन</p></div>
+      <div class="em-card reveal"><div class="em-ico">📜</div><h4>जाति प्रमाण पत्र</h4><p>नया / डुप्लीकेट</p></div>
+      <div class="em-card reveal"><div class="em-ico">🏠</div><h4>निवास प्रमाण पत्र</h4><p>नया आवेदन</p></div>
+      <div class="em-card reveal"><div class="em-ico">💰</div><h4>आय प्रमाण पत्र</h4><p>नया / रिन्यू</p></div>
+      <div class="em-card reveal"><div class="em-ico">📱</div><h4>मोबाइल रिचार्ज</h4><p>सभी ऑपरेटर</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">पैकेज व रेट्स</div>
+      <h2>आपके बजट के अनुसार पैकेज</h2>
+      <p>हर ज़रूरत के लिए पारदर्शी और सस्ती दरें — कोई हिडन चार्ज नहीं।</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <h3>स्टूडियो शूट</h3>
+        <div class="amount">₹299<sup>/शुरू से</sup></div>
+        <ul>
+          <li><span class="check">✓</span> पासपोर्ट साइज़ फोटो</li>
+          <li><span class="check">✓</span> इंस्टेंट प्रिंट</li>
+          <li><span class="check">✓</span> बैकग्राउंड एडिटिंग</li>
+          <li><span class="check">✓</span> 10 मिनट में डिलीवरी</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="color:var(--maroon);border-color:var(--maroon);">चुनें</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="ribbon">सबसे लोकप्रिय</div>
+        <h3>इवेंट पैकेज</h3>
+        <div class="amount">₹4,999<sup>/दिन</sup></div>
+        <ul>
+          <li><span class="check">✓</span> फुल डे फोटो + वीडियो</li>
+          <li><span class="check">✓</span> 1 फोटोग्राफर + असिस्टेंट</li>
+          <li><span class="check">✓</span> एडिटेड एलबम (50 फोटो)</li>
+          <li><span class="check">✓</span> ऑनलाइन डिलीवरी</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">चुनें</a>
+      </div>
+      <div class="price-card reveal">
+        <h3>वेडिंग पैकेज</h3>
+        <div class="amount">₹15,999<sup>/शुरू से</sup></div>
+        <ul>
+          <li><span class="check">✓</span> 2 दिन की पूरी कवरेज</li>
+          <li><span class="check">✓</span> सिनेमेटिक वीडियो</li>
+          <li><span class="check">✓</span> प्रीमियम एलबम</li>
+          <li><span class="check">✓</span> ड्रोन शॉट्स (वैकल्पिक)</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="color:var(--maroon);border-color:var(--maroon);">चुनें</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">ग्राहकों की राय</div>
+      <h2>हमारे ग्राहक क्या कहते हैं</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card reveal">
+        <div class="quote-mark">"</div>
+        <div class="t-stars">★★★★★</div>
+        <p>बहुत अच्छी सर्विस है। आधार कार्ड का काम बिना किसी परेशानी के हो गया और फोटो भी बहुत अच्छी आती है।</p>
+        <div class="t-person">
+          <div class="t-avatar">SD</div>
+          <div><div class="t-name">सुरेश दूधी</div><div class="t-loc">सिंधारी, राजस्थान</div></div>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="quote-mark">"</div>
+        <div class="t-stars">★★★★★</div>
+        <p>शादी की फोटोग्राफी बहुत प्रोफेशनल थी। हर पल को बहुत सुंदर तरीके से कैप्चर किया गया है।</p>
+        <div class="t-person">
+          <div class="t-avatar">RK</div>
+          <div><div class="t-name">रमेश कुमार</div><div class="t-loc">तकूबेरी, राजस्थान</div></div>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="quote-mark">"</div>
+        <div class="t-stars">★★★★★</div>
+        <p>ई-मित्र की वजह से अब शहर नहीं जाना पड़ता, यहीं सारा सरकारी काम हो जाता है। बहुत सुविधा है।</p>
+        <div class="t-person">
+          <div class="t-avatar">PM</div>
+          <div><div class="t-name">पूजा माली</div><div class="t-loc">सिंधारी, राजस्थान</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">संपर्क करें</div>
+      <h2>हमसे जुड़ें और बुकिंग करें</h2>
+      <p>फोन करें, मैसेज भेजें या सीधे स्टूडियो पर आएं — हम 24 घंटे आपकी सेवा में हैं।</p>
+    </div>
+    <div class="loc-wrap">
+      <div class="loc-card reveal">
+        <div class="loc-row">
+          <div class="li-ico">📍</div>
+          <div><h4>पता</h4><p>Siyag Market, To Takuberi Rd, Sindhari, Takooberi, Rajasthan 344033</p></div>
+        </div>
+        <div class="loc-row">
+          <div class="li-ico">📞</div>
+          <div><h4>फोन / WhatsApp</h4><p>063753 26482</p></div>
+        </div>
+        <div class="loc-row">
+          <div class="li-ico">🕐</div>
+          <div><h4>समय</h4><p>24 घंटे खुला रहता है</p></div>
+        </div>
+        <div class="loc-row">
+          <div class="li-ico">⭐</div>
+          <div><h4>गूगल रेटिंग</h4><p>4.8 ★★★★★ (4 रिव्यू)</p></div>
+        </div>
+        <a href="#" class="btn btn-primary" id="bookBtn" style="margin-top:10px;width:100%;justify-content:center;">📅 अभी बुकिंग करें</a>
+      </div>
+      <div class="map-frame reveal">
+        <div class="road"></div>
+        <div class="pin">📍</div>
+        <div class="map-label">MPS Photography & E-Mitra — सिंधारी रोड</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band reveal">
+  <h2>आज ही अपना सपना शूट बुक करें</h2>
+  <p>सीमित स्लॉट उपलब्ध हैं — अभी कॉल करें और अपनी तारीख पक्की करें।</p>
+  <a href="tel:0637532648" class="btn btn-primary">📞 कॉल करें: 063753 26482</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="f-brand">
+        <div class="brand-mark">MS</div>
+        <div class="brand-name">MPS Photography & E-Mitra</div>
+      </div>
+      <p>सिंधारी का भरोसेमंद फोटोग्राफी स्टूडियो और ई-मित्र सेवा केंद्र। हर पल और हर दस्तावेज़ की देखभाल, एक ही छत के नीचे।</p>
+      <div class="social-row">
+        <a href="#">📘</a><a href="#">📷</a><a href="#">▶️</a>
+      </div>
+    </div>
+    <div>
+      <h4>क्विक लिंक</h4>
+      <ul>
+        <li><a href="#services">सेवाएं</a></li>
+        <li><a href="#gallery">गैलरी</a></li>
+        <li><a href="#pricing">रेट्स</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>ई-मित्र</h4>
+      <ul>
+        <li><a href="#emitra">आधार कार्ड</a></li>
+        <li><a href="#emitra">पैन कार्ड</a></li>
+        <li><a href="#emitra">बिल भुगतान</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>संपर्क</h4>
+      <p>Siyag Market, To Takuberi Rd,<br>Sindhari, Takooberi, Rajasthan 344033</p>
+      <p style="margin-top:8px;">📞 063753 26482</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 MPS Photography & E-Mitra. सर्वाधिकार सुरक्षित।</span>
+    <span>Demo Website — Designed for Client Presentation</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/910637532648" class="float-wa" target="_blank" aria-label="WhatsApp">💬</a>
+<div class="toast" id="toast"></div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navlinks = document.getElementById('navlinks');
+  hamburger.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2600);
+  }
+
+  document.getElementById('bookBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast('धन्यवाद! हम आपको शीघ्र कॉल करेंगे। 📞');
+  });
+
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.style.boxShadow = window.scrollY > 10 ? '0 6px 18px rgba(36,21,16,0.08)' : 'none';
+  });
+</script>
+
+</body>
+</html>
